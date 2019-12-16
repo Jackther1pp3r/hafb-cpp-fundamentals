@@ -19,9 +19,25 @@ int main()
     cout << "Enter the specification code: ";
     cin >> code;
 
-    if (code == 'S')
+    switch(code)
     {
-        cout << "The item is a space exploration grade." << endl;
+        case 'S':
+            cout << "The item is space exploration grade" << endl;
+            break;
+        case 'M':
+            cout << "The item is Military grade" << endl;
+            break;
+        case 'C':
+            cout << "The item is Commercial exploration grade" << endl;
+            break;
+        case 'T':
+            cout << "The item is Toy grade" << endl;
+            break;
 
+
+
+        default:
+        cout << "The item not supported" << endl;
+        break;
     }
 }
