@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+
 int main()
 {
     // calculate BMI; wight(kg)/height(m)]^2
