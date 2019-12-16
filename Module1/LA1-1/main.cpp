@@ -2,19 +2,16 @@
 
 using namespace std;
 
+int global_variable = 1000;
+
 int main()
 {
     int age;
+    int  global_variable = 2000; 
 
-    std:cout << "My name is Jack" << std::endl;
-    cout << "Hello Word" << endl;
-    cout << "what is your age?" <<  endl;
-    cin >> age;
-    cout << "I see you are: " << age << endl;
-    cout << "inetegers are: " << sizeof(int) << " bytes" << endl;
-
-    cout << "Min integers value: " << INT32_MIN <<
-        " Mas Integers value: " << INT32_MAX << "bytes" << endl;
-        
+    cout << "Global " << ::global_variable << endl;
+    cout << "Local " << global_variable << endl;
+ 
+    
     return 0;
 }
