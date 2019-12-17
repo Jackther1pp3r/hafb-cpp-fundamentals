@@ -16,5 +16,13 @@ using namespace std;
 
 int main()
 {
+    FactorMod3();
+    FactorModX(3);
+    FactorModX(5);
+    FactorModRange(5,100);
+    unsigned int count = GetFactorModXRange(5, 500);
+    cout << "you got GF: " << count << endl;
+    auto count2 = GetFactorModXRange(2, 500);
+    cout << "You got GF: " << count2 << endl;
     return 0;
 }
