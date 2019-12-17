@@ -1,3 +1,9 @@
+# Build folder
+build/*
+
+# VSCode
+.vscode/*
+
 # Prerequisites
 *.d
 
@@ -30,5 +36,3 @@
 *.exe
 *.out
 *.app
-
-
