@@ -20,4 +20,4 @@ void UpdateStep(int& step)//Grab value from address in memory
   cout << "Current step: " << step << endl;
   step++;
   cout << "New step: "  << step << endl;
- }
+ }\

@@ -5,5 +5,24 @@
         "random": "cpp",
         "ostream": "cpp",
         "iomanip": "cpp"
-    }
+    },
+    "cSpell.ignoreWords": [
+        "age",
+        "by",
+        "can",
+        "congratulations",
+        "cout",
+        "current",
+        "endl",
+        "if",
+        "in",
+        "is",
+        "out",
+        "reference",
+        "value",
+        "vote",
+        "years",
+        "you",
+        "your"
+    ]
 }
