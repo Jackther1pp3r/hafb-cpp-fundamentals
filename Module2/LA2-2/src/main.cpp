@@ -91,7 +91,7 @@ int main() {
   names.fill("-");
   ages.fill(-1);
 
-  std::ifstream big;
+  std::ifstream big                ;
 
   // std::array <string, kMaxSize > age_names;
 
