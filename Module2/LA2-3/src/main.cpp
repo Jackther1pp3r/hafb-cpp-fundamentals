@@ -1,7 +1,8 @@
 #include <array>
 #include <iostream>
 #include <string>
-
+#include <fstream>
+#include <iomanip> //for formatted output
 using namespace std;
 
 /**
@@ -26,7 +27,7 @@ int main() {
       "Bountiful",    "Centerville",        "Clinton",       "South Weber",
       "West Point",   "Cottonwood Heights", "Murray",        "Salt Lake City",
       "South Jordan", "West Jordan",        "American Fork", "Lindon",
-      "Payson",       "Pleasant Grove",     "Spanish Fork",  "Harrisville",
+      "Payson",       "Pleasant Grove",  "Spanish Fork",  "Harrisville",
       "Ogden",        "Pleasant View",      "Riverdale",     "South Ogden"};
 
   array<string, kMaxSize> names = {
@@ -35,24 +36,84 @@ int main() {
       "Susan",  "Hal",   "Olivia", "Polly", "Roy",    "Scott"};
 
   // create a variable of type ofstream
+  std::ofstream commute_file;
 
   // open the file commute.txt
+  commute_file.open("../commute.txt");
+  if( commute_file.fail())
+  {
+    std::cout << "Unable to open file commute file.\n Shutting down\n";
+    return 1;
+  }
 
   // write commute_minutes and commute_miles to the file commute.txt
+  for (int index =0; index < kMaxSize; ++index)
+  {
+    std::cout << commute_minutes[index] << ", " << commute_miles[index] << std::endl;
+    commute_file << commute_minutes[index] << ", " << commute_miles[index] << std::endl;
+  }
 
+  
   // create a variable of type ofstream and open the file town.txt
+  std::ofstream town;
+  town.open("../town.txt");
+  if( town.fail())
+  {
+    std::cout << "Unable to open file town file.\n Shutting down\n";
+    return 1;
+  }
 
   // write the towns to the file town.txt
+  for (int index =0; index < kMaxSize; ++index)
+  {
+    std::cout << towns[index] << "," << names[index] << std::endl;
+    town << towns[index] << ", " << names[index] << std::endl;
+  }
+
 
   // create a variable of type ofstream and open the file commute_data.txt
+  std::ofstream commute_data;
+  commute_data.open("../commute_data.csv");
+  if( commute_data.fail())
+  {
+    std::cout << "Unable to open file data file.\n Shutting down\n";
+    return 1;
+  }
+
 
   // write commute_minutes, commute_miles, and towns to the file commute.txt
+  for (int index =0; index < kMaxSize; ++index)
+  {
+    std::cout << commute_minutes[index] << ", " << commute_miles[index] << std::endl;
+    commute_file << commute_minutes[index] << ", " << commute_miles[index] << ", " << towns[index] << endl;;
+  }
 
   // do computations and add labeling to data before writing to file
 
   // write a report to the commute_report.txt file. Include name, town,
   // commute_minutes, commute_miles, and average minutes per mile to the file
   // commute.txt
+  std::ofstream utah_file;
+  utah_file.open("../utah_file.csv");
+  if( utah_file.fail())
+  {
+    std::cout << "Unable to open file Utah_data.\n Shutting down\n";
+    return 1;
+  }
+
+
+  std::string header = "Version,minutes,miles,min/miles,name,town\n";
+  utah_file << header;
+  cout << setiosflags(ios::showpoint);
+  for(int index = 0; index < kMaxSize; ++index)
+  {
+    utah_file << setw(4) << commute_miles[index] << ","//field 0
+      << setw(4) <<commute_minutes[index] << ","
+      << setw(4) <<static_cast<float>(commute_minutes[index])/commute_miles[index] << ","
+      << setw(4) <<names[index] << ","
+      << setw(4) << towns[index]
+      << std::endl;
+  } 
 
   return 0;
 }

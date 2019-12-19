@@ -24,7 +24,7 @@ int main()
     cout << setiosflags(ios::showpoint);
     for (int count = 1; count < kMaxCount; ++count)
     {
-        cout << setw(4) << count 
+        cout << setw(4) << count ;
     }
 
     cout << 81 << sqrt(81) << endl;
